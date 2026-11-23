@@ -36,10 +36,92 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <!-- Tombol Login dan Daftar di sebelah kanan -->
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#daftarModal">Daftar</button>
+      </div>
+
+      <!-- Modal Login -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form id="loginForm" action="about:blank" method="POST" class="needs-validation" novalidate>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="loginNim" class="form-label">NIM</label>
+                  <input type="text" class="form-control" id="loginNim" name="nim" placeholder="Masukkan NIM" required>
+                  <div class="invalid-feedback">Masukkan NIM yang valid.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Password</label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password" minlength="6" required>
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">Lihat</button>
+                    <div class="invalid-feedback">Password minimal 6 karakter.</div>
+                  </div>
+                </div>
+
+                <div id="loginAlert" class="alert alert-success mt-3 d-none" role="alert">
+                  Login berhasil!
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Daftar -->
+      <div class="modal fade" id="daftarModal" tabindex="-1" aria-labelledby="daftarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="daftarModalLabel">Daftar</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form id="daftarForm" action="koneksi/add_registrasi.php" method="POST" class="needs-validation" novalidate>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="daftarNim" class="form-label">NIM</label>
+                  <input type="text" class="form-control" id="daftarNim" name="nim" placeholder="Masukkan NIM" required>
+                  <div class="invalid-feedback">NIM wajib diisi.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="daftarNama" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="daftarNama" name="nama" placeholder="Masukkan Nama Lengkap" required>
+                  <div class="invalid-feedback">Nama wajib diisi.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="daftarPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="daftarPassword" name="password" placeholder="Password" minlength="6" required>
+                  <div class="invalid-feedback">Password minimal 6 karakter.</div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Daftar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </nav>
@@ -93,12 +175,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
-
-  <hr>
-
-    <div class="fg-success">
-      <hr>
-      </div>
-
-      <hr class="border-top color red-500">h
-
